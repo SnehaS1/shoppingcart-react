@@ -36,6 +36,9 @@ class App extends React.Component{
     this.setState({cartItems});
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
+  createOrder = (order) => {
+    alert("Need to save order for " + order.name);
+  };
   sortProducts(event) {
     const sort = event.target.value;
     console.log(sort, "lkklkl");
@@ -77,7 +80,7 @@ class App extends React.Component{
               <Products products={this.state.products} addToCart={this.addToCart}></Products>
               </div>
               <div className="sidebar">
-                <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart}/>
+                <Cart createOrder={this.createOrder} cartItems={this.state.cartItems} removeFromCart={this.removeFromCart}/>
             </div>
           </div>
         </main>
